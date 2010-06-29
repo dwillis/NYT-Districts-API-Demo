@@ -3,7 +3,7 @@
   <h3>The Congressperson from ... </h3>
   <h5>(Who represents NYC landmarks?)</h5>
 
-  <%= @landmarks.each do |landmark| %>
+  <% @landmarks.each do |landmark| %>
     <%= landmark.name %><br />
     <%= landmark.address %><br />
     <%= link_to landmark.member, landmark.tt_url %>, <%= landmark.party %><br />
