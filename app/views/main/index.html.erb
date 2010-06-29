@@ -1,7 +1,9 @@
 <div class="span-16">
 
-  <h3>The Congressperson from ... </h3>
-  <h5>(Who represents NYC landmarks?)</h5>
+  <h3>The Congressperson from Carnegie Hall</h3>
+  <h4>(or, Who represents NYC landmarks?)</h4>
+  
+  <p>This demonstration app of The New York Times Districts API takes the addresses of five well-known New York City landmarks, geocodes those street addresses into latitude and longitude coordinates and then fetches the U.S. House districts that contain those landmarks using the API. Using The Times' Congress API, it also grabs details about the current member representing that district.</p>
 
   <% @landmarks.each do |landmark| %>
     <%= landmark.name %><br />
@@ -12,5 +14,5 @@
   <% end %>
 </div>
 
-	<div class="span-20">brought to you via the Districts API and Congress API of <a href="http://developer.nytimes.com">nytimes.com</a> and <a href="http://twitter.com/derekwillis">derekwillis</a>. Source on <a href="http://github.com/dwillis/NYT-Congress-API-Demo">Github</a>.</div>
+	<div class="span-20">brought to you via the Districts API and Congress API of <a href="http://developer.nytimes.com">nytimes.com</a>, <a href="http://tinygeocoder.com/blog/how-to-use/">TinyGeocoder</a> and <a href="http://twitter.com/derekwillis">derekwillis</a>. Source on <a href="http://github.com/dwillis/NYT-Congress-API-Demo">Github</a>.</div>
 </div>
