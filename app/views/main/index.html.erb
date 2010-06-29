@@ -1,0 +1,16 @@
+<div class="span-16">
+
+  <h3>The Congressperson from ... </h3>
+  <h5>(Who represents NYC landmarks?)</h5>
+
+  <%= @landmarks.each do |landmark| %>
+    <%= landmark.name %><br />
+    <%= landmark.address %><br />
+    <%= link_to landmark.member, landmark.tt_url %>, <%= landmark.party %><br />
+    <%= image_tag("http://graphics8.nytimes.com/packages/images/nytint/projects/congress/mugs/#{landmark.bioguide}.png") %>
+    <hr>
+  <% end %>
+</div>
+
+	<div class="span-20">brought to you via the Districts API and Congress API of <a href="http://developer.nytimes.com">nytimes.com</a> and <a href="http://twitter.com/derekwillis">derekwillis</a>. Source on <a href="http://github.com/dwillis/NYT-Congress-API-Demo">Github</a>.</div>
+</div>
