@@ -6,7 +6,7 @@
   <p>This demonstration app of The New York Times Districts API takes the addresses of five well-known New York City landmarks, geocodes those street addresses into latitude and longitude coordinates and then fetches the U.S. House districts that contain those landmarks using the API. Using The Times' Congress API, it also grabs details about the current member representing that district.</p>
 
   <% @landmarks.each do |landmark| %>
-    <%= landmark.name %><br />
+    <h5><%= landmark.name %></h5>
     <%= landmark.address %><br />
     <%= link_to landmark.member, landmark.tt_url %>, <%= landmark.party %><br />
     <%= image_tag("http://graphics8.nytimes.com/packages/images/nytint/projects/congress/mugs/#{landmark.bioguide}.png") %>
