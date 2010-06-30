@@ -1,5 +1,8 @@
 class Districts
   
+  NYT_CONGRESS_API_KEY = "YOUR API KEY"
+  NYT_DISTRICTS_API_KEY = "YOUR OTHER API KEY"
+  
   require 'open-uri'
   require 'uri'
   require 'ostruct'
@@ -18,17 +21,17 @@ class Districts
   end
   
   def self.fetch_house_district(lat, lng)
-    url = "http://projects.nytimes.com/districts/lookup.json?lat=#{lat}&lng=#{lng}"
+    url = "http://api.nytimes.com/svc/politics/v2/districts.json?lat=#{lat}&lng=#{lng}&api-key=#{NYT_DISTRICTS_API_KEY}"
     response = open(url).read
     d = JSON.parse(response)['results'].detect { |d| d['level'] == 'U.S. House'}
     district = OpenStruct.new(d)
   end
   
   def self.fetch_current_member(district)
-    url = "http://politics.nytimes.com/congress/svc/politics/v3/us/legislative/congress/members/house/NY/#{district}/current.json"
+    url = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/house/NY/#{district}/current.json?api-key=#{NYT_CONGRESS_API_KEY}"
     response = open(url).read
     member = JSON.parse(response)['results'].first
-    member["bioguide"] = member["id"] # OpenStruct doesn't call method_missing for id, so override
+    member["bioguide"] = member["id"] # OpenStruct doesn't call method_missing for id, so reassign id attribute
     OpenStruct.new(member)
   end
   
